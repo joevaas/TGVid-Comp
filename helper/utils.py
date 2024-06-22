@@ -148,7 +148,7 @@ async def Compress_Stats(e, userid):
     try:
         ot = humanbytes(int((Path(outp).stat().st_size)))
         ov = humanbytes(int(Path(inp).stat().st_size))
-        processing_file_name = inp.replace(f"ffmpeg/{userid}/", "anime").replace(f"_", "anime")
+        processing_file_name = inp.replace(f"ffmpeg/{userid}/", "").replace(f"_", "")
         ans = f"Processing Media: {processing_file_name}\n\nDownloaded: {ov}\n\nCompressed: {ot}"
         await e.answer(ans, cache_time=0, show_alert=True)
     except Exception as er:
@@ -256,8 +256,8 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
             else:
                 ph_path = await bot.download_media(file.thumbs[0].file_id)
 
-        org = humanbytes int(Path(File_Path).stat().st_size)
-        com = humanbytes int((Path(Output_Path).stat().st_size))
+        org = int(Path(File_Path).stat().st_size)
+        com = int((Path(Output_Path).stat().st_size))
         pe = 100 - ((com / org) * 100)
         per = str(f"{pe:.2f}")  + "%"
         eees = dt.now()
