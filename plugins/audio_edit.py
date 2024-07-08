@@ -32,7 +32,7 @@ def trim_video(input_file, start_time, end_time, output_file):
     ]
     run_command(command)
 
-    message.reply_text(pls wait)
+    message.reply_text("pls wait")
 
 @bot.on_message(filters.command("remove_audio"))
 def handle_remove_audio(client, message):
