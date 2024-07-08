@@ -48,7 +48,7 @@ def handle_remove_audio(client, message):
 
     client.send_video(chat_id=message.chat.id, video=output_file_no_audio)
 
-@bot.on_message(filters.command("trim_video"))
+@Client.on_message(filters.command("trim_video"))
 def handle_trim_video(client, message):
     args = message.command
     if len(args) != 3:
