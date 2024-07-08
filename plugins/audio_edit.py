@@ -32,15 +32,15 @@ def trim_video(input_file, start_time, end_time, output_file):
     ]
     run_command(command)
 
-@bot.on_message(filters.command("help"))
-def help(client, message):
-    help_text = (
+@bot.on_message(filters.command("speed"))
+def speed(client, message):
+    speed_text = (
         "Available commands:\n"
         "/start - Start the bot\n"
         "/remove_audio - Remove audio from a video\n"
         "/trim_video - Trim a video\n"
     )
-    message.reply_text(help_text)
+    message.reply_text(speed_text)
 
 @bot.on_message(filters.command("remove_audio"))
 def handle_remove_audio(client, message):
