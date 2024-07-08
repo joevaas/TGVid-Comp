@@ -32,10 +32,6 @@ def trim_video(input_file, start_time, end_time, output_file):
     ]
     run_command(command)
 
-@bot.on_message(filters.command("start"))
-def start(client, message):
-    message.reply_text("Hello! Send me a video to process. Use /help to see available commands.")
-
 @bot.on_message(filters.command("help"))
 def help(client, message):
     help_text = (
