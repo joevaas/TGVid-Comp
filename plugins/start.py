@@ -16,6 +16,8 @@ async def _(bot: Client, cmd: Message):
 
 @Client.on_message((filters.private | filters.group) & filters.command('start'))
 async def Handle_StartMsg(bot:Client, msg:Message):
+    if message.from_user.id not in Config.ADMIN:
+        return await message.reply_text("❌ you are not able to use this bot.)
 
     Snowdev = await msg.reply_text(text= '**Please Wait...**', reply_to_message_id=msg.id)
 
