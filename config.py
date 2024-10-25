@@ -25,6 +25,7 @@ class Config(object):
     # wes response configuration     
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
     PORT = int(os.environ.get("PORT", "8030"))
+    WARN = "❌ You Can't Able to use the Bot"
 
 
     caption = """
