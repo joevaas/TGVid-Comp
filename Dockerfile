@@ -1,22 +1,12 @@
-# Use the latest Python 3.11 image
-FROM python:3.11
-
-# Create and set permissions for the bot directory
+FROM python:3.10.6
 RUN mkdir /bot && chmod 777 /bot
 WORKDIR /bot
-
-# Set environment variable to avoid interactive prompts during installs
 ENV DEBIAN_FRONTEND=noninteractive
-
-# Update package list and install dependencies
 RUN apt -qq update && \
-    apt -qq install -y --no-install-recommends \
-    git wget pv jq python3-dev ffmpeg mediainfo neofetch fontconfig && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt -qq install -y git wget pv jq python3-dev ffmpeg mediainfo neofetch && \
+    apt-get install wget -y -f && \
+    apt-get install fontconfig -y -f
 
-# Copy bot files and install Python dependencies
 COPY . .
-RUN pip3 install --no-cache-dir -r requirements.txt
-
-# Run the bot using the run.sh script
+RUN pip3 install -r requirements.txt
 CMD ["bash", "run.sh"]
