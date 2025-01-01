@@ -43,7 +43,7 @@ async def Handle_StartMsg(bot:Client, msg:Message):
             
     
 
-@Client.on_message((filters.private | filters.group) & (filters.document | filters.audio | filters.video))
+@Client.on_message((filters.private | filters.group) & (filters.document | filters.audio | filters.video) & filters.user(Config.Admin))
 async def Files_Option(bot:Client, message:Message):
     
     SnowDev = await message.reply_text(text='**Please Wait**', reply_to_message_id=message.id)
