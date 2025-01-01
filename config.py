@@ -17,7 +17,7 @@ class Config(object):
     DB_NAME  = os.environ.get("DB_NAME","Speedwolf1") 
 
     # Other Configs 
-    ADMIN = int(os.environ.get("ADMIN", "6299192020")) # ⚠️ Required
+    ADMIN = [6299192020, 6693549185, 6121610691] # ⚠️ Required
     LOG_CHANNEL = os.environ.get('LOG_CHANNEL', None) # ⚠️ Required
     BOT_UPTIME = BOT_UPTIME  = time.time()
     START_PIC = os.environ.get("START_PIC", "https://graph.org/file/15e82d7e665eccc8bd9c5.jpg")
